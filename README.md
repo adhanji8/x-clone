@@ -4,9 +4,16 @@ Creating a clone of X (twitter) with Next 14.
 ## Todos:
 - [x] Landing Page
 - [x] Create Login Modal with Client-Side Zod Validation
+- [ ] Edit profile
+- [ ] Bookmark Tweets
+- [ ] Retweet
+- [ ] Comment on a Tweet
+- [ ] Like a tweet or comment
+- [ ] Notifications (for @ mentions, received likes, etc)
+- [ ] Search for Posts & Users
+- [ ] Optimistic UI
+- [ ] TRPC? (maybe)
 
 Step-based Sign up Modal:
   - [x] Create Sign up Modal with Client-Side Zod Validation
   - [ ] Implement Smooth Transitions between steps using Framer Motion
-  
-
