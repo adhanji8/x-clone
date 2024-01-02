@@ -49,6 +49,12 @@ export default function Auth() {
                 <div className="h-px bg-gray-700 w-1/2" />
               </div>
               <Button label="Create account" fullWidth />
+              <div className="text-[10px] text-gray-400">
+                By signing up, you agree to the{" "}
+                <span className="text-sky-500">Terms of Service</span> and
+                <span className="text-sky-500"> Privacy Policy</span>, including
+                <span className="text-sky-500"> Cookie Use</span>.
+              </div>
             </div>
           </div>
           <div className="w-full md:w-[60%]">
