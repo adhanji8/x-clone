@@ -6,17 +6,20 @@ import { AiFillGithub } from "react-icons/ai";
 export default function Auth() {
   return (
     <>
-      <div className="grid grid-cols-2 gap-10 items-center h-screen">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center h-screen">
         <Image
           src={"/images/x.svg"}
           alt="X"
           width={450}
           height={450}
-          className="justify-self-end"
+          className="justify-self-center hidden md:block"
         />
-        <div className="flex flex-col justify-between h-[70vh]">
-          <h1 className="text-6xl font-bold">Happening Now</h1>
-          <div className="w-[60%]">
+        <div className="flex flex-col justify-center md:justify-between gap-6 h-full md:h-[70vh]">
+          <div className="block md:hidden">
+            <Image src={"/images/x.svg"} alt="X" width={50} height={50} />
+          </div>
+          <h1 className="text-4xl font-bold">Happening Now</h1>
+          <div className="w-full md:w-[60%]">
             <h2 className="font-bold text-3xl mb-4">Join today.</h2>
             <div className="flex flex-col space-y-2">
               <Button
@@ -48,7 +51,7 @@ export default function Auth() {
               <Button label="Create account" fullWidth />
             </div>
           </div>
-          <div className="w-[60%]">
+          <div className="w-full md:w-[60%]">
             <h3 className="font-medium text-xl mb-4">
               Already have an account?
             </h3>
