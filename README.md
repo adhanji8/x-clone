@@ -9,6 +9,7 @@ Creating a clone of X (twitter) with Next 14.
 - [ ] Apply Server-side validation with shared Zod Schema from client
 - [ ] Try using [unglitch](https://unglitch.activeno.de/) rather than Zustand/TanStack Query for cacheing
 - [ ] Edit profile
+- [x] Who to follow suggestion pane
 - [ ] Bookmark Tweets
 - [ ] Retweet
 - [ ] Like a tweet
