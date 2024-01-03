@@ -4,9 +4,9 @@ import { IUser } from "@/interfaces";
 import React from "react";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
-import { Loader2, MoreHorizontal } from "lucide-react";
+import { MoreHorizontal } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 interface Props {
   user: IUser;
@@ -14,15 +14,6 @@ interface Props {
 
 const SidebarAccount = ({ user }: Props) => {
   const router = useRouter();
-  // We can avoid the loading state if we pass user from server
-  // const { user, status }: any = useAuthClient();
-
-  // if (status == "loading")
-  //   return (
-  //     <div className="flex items-center justify-center">
-  //       <Loader2 className="animate-spin text-sky-500" />
-  //     </div>
-  //   );
 
   return (
     <>

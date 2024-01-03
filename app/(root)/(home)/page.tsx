@@ -1,15 +1,27 @@
-import Auth from "@/components/auth";
-import Sidebar from "@/components/sidebar/sidebar";
+import Form from "@/components/shared/form";
+import Header from "@/components/shared/header";
+import PostItem from "@/components/shared/post-item";
+import { IPost, IUser } from "@/interfaces";
+import { getPosts } from "@/lib/service";
+import useAuthServer from "@/lib/useAuthServer";
 
-export default function Page() {
-  return <div>hello world</div>;
-  // const user = false;
-  // if (!user)
-  //   return (
-  //     <div className="container h-screen mx-auto max-w-7xl">
-  //       <Auth />
-  //     </div>
-  //   );
+export default async function Page() {
+  const user: IUser = await useAuthServer();
+  const posts = await getPosts(user);
 
-  // return <Sidebar />;
+  return (
+    <>
+      <Header label="Home" />
+      <>
+        <Form placeholder="What's on your mind?" user={user} />
+        {posts.map((post: IPost) => (
+          <PostItem
+            key={post.id}
+            post={post}
+            user={user} /*setPosts={() => {}}*/
+          />
+        ))}
+      </>
+    </>
+  );
 }

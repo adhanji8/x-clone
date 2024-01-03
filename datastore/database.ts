@@ -1,4 +1,4 @@
-import { IUser } from "@/interfaces";
+import { IPost, IUser } from "@/interfaces";
 import fs from "node:fs/promises";
 
 interface IStorable<T> {
@@ -7,6 +7,9 @@ interface IStorable<T> {
   retrieveUserById(id: string): any; // TODO FIX
   retrieveUserByEmail(email: string): any; // TODO FIX
   retrieveUserByUsername(username: string): any; // TODO FIX
+  retrievePostsByUsername(username: string): any; // TODO FIX
+  retrievePostById(id: string): any; // TODO FIX
+  insertPost(body: string, userId: string): any; // TODO FIX
 }
 
 export class Database {
@@ -19,6 +22,14 @@ export class Database {
     this.store.add(user);
   }
 
+  async insertPost(body: string, userId: string) {
+    return this.store.insertPost(body, userId);
+  }
+
+  async retrievePostById(id: string) {
+    return this.store.retrievePostById(id);
+  }
+
   async retrieveUserById(id: string) {
     return this.store.retrieveUserById(id);
   }
@@ -29,6 +40,10 @@ export class Database {
 
   async retrieveUserByUsername(username: string) {
     return this.store.retrieveUserByUsername(username);
+  }
+
+  async retrievePostsByUsername(username: string) {
+    return this.store.retrievePostsByUsername(username);
   }
 }
 
@@ -44,11 +59,46 @@ export class JsonDatabase implements IStorable<IUser> {
     fs.writeFile(this.filename, JSON.stringify(data, null, 2));
   }
 
+  async insertPost(body: string, userId: string): Promise<IPost> {
+    const foundUser = await this.retrieveUserById(userId);
+    const newPost = {
+      id: crypto.randomUUID(),
+      createdAt: "October 15, 2023 05:35:32",
+      title: body,
+      body: body,
+      comments: 0,
+      hasLiked: false,
+      likes: 0,
+      user: {
+        id: "0b7dc03f-eada-4167-a11e-17528eb31c4c",
+        name: "john",
+        username: "john123",
+        hasNewNotifications: false,
+        email: "john123@gmail.com",
+        profileImage:
+          "https://res.cloudinary.com/demo/image/twitter/1330457336.jpg",
+      },
+    };
+    foundUser?.posts!.push(newPost);
+    const data = await this.getData();
+    const userIndex = data.findIndex((user: IUser) => user.id === userId);
+    if (foundUser != null) {
+      data[userIndex] = foundUser;
+      fs.writeFile(this.filename, JSON.stringify(data, null, 2));
+    }
+    return newPost;
+  }
+
   async retrieveUserById(id: string): Promise<IUser | null> {
     const data = await this.getData();
     const user = data.find((user: IUser) => user.id === id);
     if (!user) return null;
     return user;
+  }
+
+  async retrievePostById(id: string): Promise<IPost | null> {
+    const data = await this.getData();
+    return data[0].posts![0];
   }
 
   async retrieveUserByEmail(email: string): Promise<IUser | null> {
@@ -63,6 +113,13 @@ export class JsonDatabase implements IStorable<IUser> {
     const user = data.find((user: IUser) => user.username === username);
     if (!user) return null;
     return user;
+  }
+
+  async retrievePostsByUsername(username: string) {
+    const data = await this.getData();
+    const posts = data.find((user: IUser) => user.username === username)?.posts;
+    if (!posts) return null;
+    return posts;
   }
 
   private async getData(): Promise<IUser[]> {

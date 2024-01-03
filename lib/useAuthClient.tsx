@@ -1,18 +1,27 @@
 "use client";
+import { IUser } from "@/interfaces";
 import { createContext, useContext, useState } from "react";
 
 type UserContextProviderProps = {
   children: React.ReactNode;
 };
 type UserContext = {
-  user: { username?: string };
+  user: IUser;
   setUser: React.Dispatch<React.SetStateAction<any>>;
 };
 
 export const UserContext = createContext<UserContext | null>(null);
 
 export function UserContextProvider({ children }: UserContextProviderProps) {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    id: "",
+    username: "",
+    name: "",
+    email: "",
+    profilePicture: "",
+    posts: [],
+    hasNewNotifications: false,
+  });
   return (
     <UserContext.Provider
       value={{

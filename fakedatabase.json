@@ -8,8 +8,71 @@
     "password": "$2a$14$dxOGXe76AVBkasKUf5S4WuuQtBpei8FNU/JeC/JN1XsbpuKWnhr.6",
     "posts": [
       {
+        "id": "24684da3-9abb-4bac-a0cc-b51bed8768b0",
+        "createdAt": "October 15, 2023 05:35:32",
         "title": "go to mall",
-        "content": "shop"
+        "body": "relax",
+        "comments": [],
+        "hasLiked": false,
+        "likes": 0,
+        "user": {
+          "id": "0b7dc03f-eada-4167-a11e-17528eb31c4c",
+          "name": "john",
+          "username": "john123",
+          "email": "john123@gmail.com",
+          "profileImage": "https://res.cloudinary.com/demo/image/twitter/1330457336.jpg"
+        }
+      },
+      {
+        "id": "26684da3-9abb-4bac-a0cc-b51bed8768b0",
+        "createdAt": "October 15, 2023 05:35:32",
+        "title": "cool app",
+        "body": "cool app",
+        "comments": 0,
+        "hasLiked": false,
+        "likes": 0,
+        "user": {
+          "id": "0b7dc03f-eada-4167-a11e-17528eb31c4c",
+          "name": "john",
+          "username": "john123",
+          "hasNewNotifications": false,
+          "email": "john123@gmail.com",
+          "profileImage": "https://res.cloudinary.com/demo/image/twitter/1330457336.jpg"
+        }
+      },
+      {
+        "id": "8949b449-9c58-4140-855d-cf5fef171f51",
+        "createdAt": "October 15, 2023 05:35:32",
+        "title": "nice app",
+        "body": "nice app",
+        "comments": 0,
+        "hasLiked": false,
+        "likes": 0,
+        "user": {
+          "id": "0b7dc03f-eada-4167-a11e-17528eb31c4c",
+          "name": "john",
+          "username": "john123",
+          "hasNewNotifications": false,
+          "email": "john123@gmail.com",
+          "profileImage": "https://res.cloudinary.com/demo/image/twitter/1330457336.jpg"
+        }
+      },
+      {
+        "id": "b6ba3261-f35e-4ced-acdf-419480975321",
+        "createdAt": "October 15, 2023 05:35:32",
+        "title": "fantastic functionality, great job.",
+        "body": "fantastic functionality, great job.",
+        "comments": 0,
+        "hasLiked": false,
+        "likes": 0,
+        "user": {
+          "id": "0b7dc03f-eada-4167-a11e-17528eb31c4c",
+          "name": "john",
+          "username": "john123",
+          "hasNewNotifications": false,
+          "email": "john123@gmail.com",
+          "profileImage": "https://res.cloudinary.com/demo/image/twitter/1330457336.jpg"
+        }
       }
     ]
   },
@@ -22,8 +85,20 @@
     "password": "$2a$14$Gn34vEwGfSPKMb7BvIBeD.TRlw8X4LyMUwerO.uqiT8lQl9ERkw.y",
     "posts": [
       {
+        "id": "1",
+        "createdAt": "October 15, 2023 05:35:32",
+        "hasLiked": false,
         "title": "go to hawaii",
-        "content": "relax"
+        "likes": 0,
+        "body": "relax",
+        "comments": 0,
+        "user": {
+          "id": "aa8dc2ed-7fe9-465f-9c04-ed2fe27bc321",
+          "name": "sandra",
+          "username": "sandra123",
+          "email": "sandra123@gmail.com",
+          "profileImage": "https://res.cloudinary.com/demo/image/twitter/1330457336.jpg"
+        }
       }
     ]
   }

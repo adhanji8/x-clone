@@ -5,8 +5,8 @@ export interface IUser {
   username: string;
   name: string;
   email: string;
-  password: string;
+  password?: string;
   profileImage?: string;
-  posts: IPost[];
+  posts?: IPost[];
   hasNewNotifications: boolean;
 }

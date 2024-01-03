@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 interface ButtonProps {
   label: ReactNode | string;
   secondary?: boolean;
+  className?: string;
   fullWidth?: boolean;
   large?: boolean;
   disabled?: boolean;
@@ -21,6 +22,7 @@ export default function Button({
   outline,
   secondary,
   type,
+  className,
 }: ButtonProps) {
   return (
     <button
@@ -34,7 +36,8 @@ export default function Button({
         large ? "text-xl px-5 py-3" : "text-md px-4 py-3",
         outline
           ? "bg-transparent border-slate-600 text-sky-500 hover:bg-slate-800/40"
-          : ""
+          : "",
+        className
       )}
     >
       {label}

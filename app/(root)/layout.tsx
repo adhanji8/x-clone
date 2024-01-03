@@ -4,6 +4,7 @@ import React from "react";
 // import { Toaster } from "@/components/ui/toaster";
 import NextTopLoader from "nextjs-toploader";
 import Sidebar from "@/components/sidebar/sidebar";
+import { Toaster } from "@/components/ui/toaster";
 // import FollowBar from "@/components/shared/follow-bar";
 // import Sidebar from "@/components/sidebar/sidebar";
 
@@ -40,7 +41,7 @@ const Layout = async ({ children }: Props) => {
               shadow="0 0 10px #2299DD,0 0 5px #2299DD"
             />
             {children}
-            {/* <Toaster /> */}
+            <Toaster />
           </div>
         </div>
         {/* <FollowBar /> */}
