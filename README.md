@@ -6,6 +6,7 @@ Creating a clone of X (twitter) with Next 14.
 - [x] Create Login Modal with Client-Side Zod Validation
 - [x] View, Create, and Comment on Tweets
 - [x] Implement session-based auth without any libs
+- [ ] Try using [unglitch](https://unglitch.activeno.de/) rather than Zustand/TanStack Query for cacheing
 - [ ] Edit profile
 - [ ] Bookmark Tweets
 - [ ] Retweet
