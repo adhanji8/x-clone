@@ -7,21 +7,24 @@ import useAuthServer from "@/lib/useAuthServer";
 
 export default async function Page() {
   const user: IUser = await useAuthServer();
+  if (!user) return;
   const posts = await getPosts(user);
 
   return (
     <>
       <Header label="Home" />
-      <>
-        <Form placeholder="What's on your mind?" user={user} />
-        {posts.map((post: IPost) => (
-          <PostItem
-            key={post.id}
-            post={post}
-            user={user} /*setPosts={() => {}}*/
-          />
-        ))}
-      </>
+      <Form placeholder="What's on your mind?" user={user} />
+      <Posts posts={posts} user={user} />
+    </>
+  );
+}
+
+function Posts({ posts, user }: any) {
+  return (
+    <>
+      {posts.map((post: IPost) => (
+        <PostItem key={post.id} post={post} user={user} />
+      ))}
     </>
   );
 }

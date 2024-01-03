@@ -1,12 +1,10 @@
 import Auth from "@/components/auth";
 import useAuthServer from "@/lib/useAuthServer";
 import React from "react";
-// import { Toaster } from "@/components/ui/toaster";
 import NextTopLoader from "nextjs-toploader";
 import Sidebar from "@/components/sidebar/sidebar";
 import { Toaster } from "@/components/ui/toaster";
-// import FollowBar from "@/components/shared/follow-bar";
-// import Sidebar from "@/components/sidebar/sidebar";
+import FollowBar from "@/components/shared/follow-bar";
 
 interface Props {
   children: React.ReactNode;
@@ -44,7 +42,7 @@ const Layout = async ({ children }: Props) => {
             <Toaster />
           </div>
         </div>
-        {/* <FollowBar /> */}
+        <FollowBar />
       </div>
     </div>
   );

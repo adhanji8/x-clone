@@ -17,9 +17,6 @@ export async function POST(req: Request) {
 }
 
 export async function GET(req: Request) {
-  debugger;
-  console.log("ENTERED HERRRE DAWG");
-
   try {
     const { searchParams } = new URL(req.url);
     const limit = searchParams.get("limit");

@@ -18,4 +18,9 @@ async function getComments(postId: string) {
     .data;
 }
 
-export { getPosts, getPost, getComments };
+async function getUsers(quantity: number) {
+  return (await axios.get(`http://localhost:3000/api/users?limit=${quantity}`))
+    .data;
+}
+
+export { getPosts, getPost, getComments, getUsers };

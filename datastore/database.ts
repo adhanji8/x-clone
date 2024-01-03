@@ -8,6 +8,7 @@ interface IStorable<T> {
   retrieveUserByEmail(email: string): any; // TODO FIX
   retrieveUserByUsername(username: string): any; // TODO FIX
   retrievePostsByUsername(username: string): any; // TODO FIX
+  retrieveUsers(quantity: number): any; // TODO FIX
   retrievePostById(id: string): any; // TODO FIX
   insertPost(body: string, userId: string): any; // TODO FIX
 }
@@ -32,6 +33,10 @@ export class Database {
 
   async retrieveUserById(id: string) {
     return this.store.retrieveUserById(id);
+  }
+
+  async retrieveUsers(limit: number) {
+    return this.store.retrieveUsers(limit);
   }
 
   async retrieveUserByEmail(email: string) {
@@ -94,6 +99,11 @@ export class JsonDatabase implements IStorable<IUser> {
     const user = data.find((user: IUser) => user.id === id);
     if (!user) return null;
     return user;
+  }
+
+  async retrieveUsers(limit: number): Promise<IUser[] | null> {
+    const data = await this.getData();
+    return data.slice(0, limit);
   }
 
   async retrievePostById(id: string): Promise<IPost | null> {

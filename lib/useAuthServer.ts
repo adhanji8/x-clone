@@ -3,7 +3,6 @@ import { cookies } from "next/headers";
 
 export default async function useAuthServer() {
   try {
-    console.log("entered bruh");
     const cookieStore = cookies();
     const sessionId = cookieStore.get("session_token")?.value;
 
