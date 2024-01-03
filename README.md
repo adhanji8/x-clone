@@ -5,6 +5,7 @@ Creating a clone of X (twitter) with Next 14.
 - [x] Landing Page
 - [x] Create Login Modal with Client-Side Zod Validation
 - [x] View, Create, and Comment on Tweets
+- [x] Implement session-based auth without any libs
 - [ ] Edit profile
 - [ ] Bookmark Tweets
 - [ ] Retweet
