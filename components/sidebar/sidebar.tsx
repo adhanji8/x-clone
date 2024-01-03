@@ -39,7 +39,7 @@ export default function Sidebar({ user }: Props) {
   ];
 
   return (
-    <section className="sticky left-0 top-0 h-screen lg:w-[266px] w-fit flex flex-col justify-between py-4 pl-2">
+    <section className="sticky left-0 top-0 h-screen lg:w-[266px] w-fit flex flex-col items-center justify-between py-4 pl-2">
       <div className="flex flex-col space-y-2">
         <div className="rounded-full h-14 w-14 p-4 flex items-center justify-center hover:bg-sky-300 hover:bg-opacity-10 cursor-pointer transition">
           <Image width={56} height={56} src={"/images/logo.svg"} alt="logo" />
@@ -51,7 +51,7 @@ export default function Sidebar({ user }: Props) {
           </Link>
         ))}
 
-        <SidebarPostButton />
+        {/* <SidebarPostButton /> */}
       </div>
 
       <SidebarAccount user={user} />

@@ -6,7 +6,7 @@ const SidebarPostButton = () => {
   return (
     <Link href={"/"}>
       {/* MOBILE POST */}
-      <div className="mt-6 lg:hidden rounded-full h-14 w-14 p-4 flex items-center justify-center bg-sky-500 hover:bg-opacity-80 transition cursor-pointer">
+      <div className="mt-6 lg:hidden rounded-full h-10 w-10 flex items-center justify-center bg-sky-500 hover:bg-opacity-80 transition cursor-pointer">
         <Feather size={24} color="white" />
       </div>
 

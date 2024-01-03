@@ -21,7 +21,7 @@ const FollowBar = async () => {
             />
           </Link>
         </div>
-        <div className="flex flex-col mt-4 gap-4 pb-2">
+        <div className="flex flex-col mt-4 mx-3 gap-4 pb-2">
           {users.map((user: IUser) => (
             <Link key={user.id} href={`/profile/${user.id}`}>
               <User user={user} />
