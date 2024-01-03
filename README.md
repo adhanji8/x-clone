@@ -4,11 +4,11 @@ Creating a clone of X (twitter) with Next 14.
 ## Todos:
 - [x] Landing Page
 - [x] Create Login Modal with Client-Side Zod Validation
+- [x] View, Create, and Comment on Tweets
 - [ ] Edit profile
 - [ ] Bookmark Tweets
 - [ ] Retweet
-- [ ] Comment on a Tweet
-- [ ] Like a tweet or comment
+- [ ] Like a tweet
 - [ ] Notifications (for @ mentions, received likes, etc)
 - [ ] Search for Posts & Users
 - [ ] Optimistic UI
