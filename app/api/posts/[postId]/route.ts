@@ -1,14 +1,11 @@
-import { db } from "@/datastore";
+import { retrievePostById } from "@/services/postService";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request, route: { params: { postId: string } }) {
   try {
-    console.log("hi");
     const { postId } = route.params;
 
-    const post = await db.retrievePostById(postId);
-    console.log("The post was");
-    console.log(post);
+    const post = await retrievePostById(postId);
 
     return NextResponse.json(post);
   } catch (error) {

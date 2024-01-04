@@ -1,11 +1,10 @@
-import { db } from "@/datastore";
-import useAuthServer from "@/lib/useAuthServer";
+import { insertPost, retrievePostsByUsername } from "@/services/postService";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
     const { body, userId } = await req.json();
-    const post = await db.insertPost(body, userId);
+    const post = await insertPost(body, userId);
 
     // const post = await Post.create({ body, user: userId });
 
@@ -19,11 +18,8 @@ export async function POST(req: Request) {
 export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
-    const limit = searchParams.get("limit");
     const username = searchParams.get("username") as string;
-    const currentUser = await db.retrieveUserByUsername(username);
-
-    const posts = await db.retrievePostsByUsername(username);
+    const posts = (await retrievePostsByUsername(username)) || [];
 
     const filteredPosts = posts.map((post: any) => ({
       body: post.body,

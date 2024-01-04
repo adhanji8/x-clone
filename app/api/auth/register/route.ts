@@ -1,4 +1,9 @@
-import { db } from "@/datastore";
+import { IUser } from "@/interfaces";
+import {
+  add,
+  retrieveUserByEmail,
+  retrieveUserByUsername,
+} from "@/services/userService";
 import bcrypt from "bcrypt";
 import { randomUUID } from "crypto";
 import { NextResponse } from "next/server";
@@ -9,7 +14,7 @@ export async function POST(request: Request) {
 
   if (step === "1") {
     const { email } = await request.json();
-    const existingEmail = await db.retrieveUserByEmail(email);
+    const existingEmail = await retrieveUserByEmail(email);
     if (existingEmail) {
       return NextResponse.json(
         { error: "Email already exists" },
@@ -19,7 +24,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true });
   } else if (step === "2") {
     const { email, username, name, password } = await request.json();
-    const isExistingUsername = await db.retrieveUserByUsername(username);
+    const isExistingUsername = await retrieveUserByUsername(username);
 
     if (isExistingUsername) {
       return NextResponse.json(
@@ -30,15 +35,21 @@ export async function POST(request: Request) {
 
     const hashedPassword = await bcrypt.hash(password, 14);
 
-    const user = {
+    const user: IUser = {
       id: randomUUID(),
+      createdAt: "October 10, 2023",
+      followers: [],
+      following: 0,
+      isFollowing: false,
+      name: name,
+      hasNewNotifications: false,
       email,
       username,
       password: hashedPassword,
       posts: [],
     };
 
-    await db.add(user);
+    await add(user);
     return NextResponse.json({ success: true, user });
   }
 }

@@ -7,7 +7,6 @@ import { getUsers } from "@/lib/service";
 
 const FollowBar = async () => {
   const users = await getUsers(5);
-  console.log(users);
   return (
     <div className="py-4 hidden lg:block w-[266px]">
       <div className="bg-neutral-900 rounded-xl ">

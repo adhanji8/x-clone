@@ -1,11 +1,11 @@
-import { db } from "@/datastore";
+import { retrievePostById } from "@/services/postService";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request, route: { params: { postId: string } }) {
   try {
     const { postId } = route.params;
 
-    const post = await db.retrievePostById(postId);
+    const post = await retrievePostById(postId);
 
     // const filteredComments = post.comments.map((item: any) => ({
     //   body: item.body,

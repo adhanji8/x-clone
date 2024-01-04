@@ -1,9 +1,9 @@
-import { db } from "@/datastore";
+import { retrievePostsByUserId } from "@/services/postService";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request, route: { params: { userId: string } }) {
   try {
-    const posts = await db.retrievePostsByUserId(route.params.userId);
+    const posts = (await retrievePostsByUserId(route.params.userId)) || [];
 
     const filteredPosts = posts.map((post: any) => ({
       body: post.body,

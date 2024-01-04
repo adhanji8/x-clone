@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import { db } from "@/datastore";
 import { IUser } from "@/interfaces";
+import { retrieveUsers } from "@/services/userService";
 
 export async function GET(req: Request, route: { params: { query: string } }) {
   try {
     const { query } = route.params;
-    const users = await db.retrieveUsers(100);
+    const users = await retrieveUsers(100);
     const filteredUsers = users.filter((user: IUser) =>
       user.username.includes(query)
     );

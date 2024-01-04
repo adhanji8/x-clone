@@ -1,4 +1,5 @@
-import { db, sessionDb } from "@/datastore";
+import { sessionDb } from "@/datastore";
+import { retrieveUserById } from "@/services/userService";
 import { cookies } from "next/headers";
 
 export default async function useAuthServer() {
@@ -16,7 +17,7 @@ export default async function useAuthServer() {
       return null;
     }
 
-    const user = await db.retrieveUserById(userSession.getUserId());
+    const user = await retrieveUserById(userSession.getUserId());
 
     if (!user) return null;
     delete user?.password;

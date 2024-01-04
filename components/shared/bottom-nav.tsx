@@ -4,7 +4,6 @@ import React from "react";
 
 import Link from "next/link";
 
-import { Icon } from "@iconify/react";
 import { sidebarItems as sideItems } from "@/components/sidebar/items";
 import { IUser } from "@/interfaces";
 import SidebarItem from "../sidebar/sidebar-item";
@@ -26,18 +25,6 @@ const BottomNav = ({ user }: Props) => {
             <SidebarItem {...item} />
           </Link>
         ))}
-        {/* <Link href="/" className="flex items-center relative">
-          <Icon icon="mingcute:home-5-line" width="32" height="32" />
-        </Link>
-        <Link href="/explore" className="flex items-center">
-          <Icon icon="uil:search" width="32" height="32" />
-        </Link>
-        <Link href="/notifications" className="flex items-center">
-          <Icon icon="mingcute:notification-line" width="32" height="32" />
-        </Link>
-        <Link href="/messages" className="flex items-center">
-          <Icon icon="ic:outline-email" width="32" height="32" />
-        </Link> */}
       </div>
     </div>
   );
