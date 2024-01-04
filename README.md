@@ -12,7 +12,7 @@ Creating a clone of X (twitter) with Next 14.
 - [ ] Implement theme switcher toggle
 - [ ] Show dark-colored X logo when light-theme is turned on
 - [ ] Implement [Intercepting Routes](https://nextjs.org/docs/app/building-your-application/routing/intercepting-routes) so UX when linking to the login/register modal is solid.
-- [ ] Apply Server-side validation with shared Zod Schema from client
+- [x] Apply Server-side validation with shared Zod Schema from client
 - [ ] Try using [unglitch](https://unglitch.activeno.de/) rather than Zustand/TanStack Query for cacheing
 - [x] Edit profile
 - [ ] Update profile
