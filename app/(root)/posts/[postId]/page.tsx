@@ -10,7 +10,8 @@ import useAuthServer from "@/lib/useAuthServer";
 import { getComments, getPost } from "@/lib/service";
 
 export default async function Page({ params }: { params: { postId: string } }) {
-  const user: IUser = await useAuthServer();
+  const user = await useAuthServer();
+  if (!user) return { error: "user not found " };
   const post: IPost = await getPost(params.postId);
   const comments = await getComments(params.postId);
 
@@ -31,7 +32,7 @@ export default async function Page({ params }: { params: { postId: string } }) {
 
 function OriginalPost({ post }: any) {
   return (
-    <div className="border-b-[1px] border-neutral-800 p-5 cursor-pointer bg-neutral-900 transition">
+    <div className="border-b-[1px] p-5 cursor-pointer border-slate-200 dark:border-neutral-800 transition">
       <div className="flex flex-row items-center gap-3">
         <Avatar>
           <AvatarImage src={post?.user.profileImage} />

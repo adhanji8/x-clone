@@ -26,7 +26,7 @@ const Layout = async ({ children }: Props) => {
     <div className="lg:container h-screen mx-auto lg:max-w-7xl">
       <div className="flex">
         <Sidebar user={user} />
-        <div className="flex flex-1 border-x-[1px] border-neutral-800 lg:mx-4 ml-1">
+        <div className="flex flex-1 border-x-[1px] border-slate-200 dark:border-neutral-800 lg:mx-4 ml-1">
           <div className="w-full">
             <NextTopLoader
               color="#2299DD"

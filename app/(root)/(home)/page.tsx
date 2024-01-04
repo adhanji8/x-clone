@@ -6,7 +6,7 @@ import { getPosts } from "@/lib/service";
 import useAuthServer from "@/lib/useAuthServer";
 
 export default async function Page() {
-  const user: IUser = await useAuthServer();
+  const user = await useAuthServer();
   if (!user) return;
   const posts = await getPosts(user);
 

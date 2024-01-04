@@ -103,7 +103,7 @@ const PostItem = ({ post, user, setPosts }: Props) => {
   };
 
   return (
-    <div className="border-b-[1px] border-neutral-800 p-5 cursor-pointer hover:bg-neutral-900 transition relative">
+    <div className="border-b-[1px] p-5 cursor-pointer border-slate-200 dark:border-neutral-800 hover:bg-slate-300 hover:bg-opacity-10 dark:hover:bg-neutral-900 transition relative">
       {isLoading && (
         <div className="absolute inset-0 w-full h-full bg-black opacity-50">
           <div className="flex justify-center items-center h-full">
@@ -125,7 +125,7 @@ const PostItem = ({ post, user, setPosts }: Props) => {
             className="flex flex-row items-center gap-2"
             onClick={goToProfile}
           >
-            <p className="text-white font-semibold cursor-pointer hover:underline">
+            <p className="dark:text-white font-semibold cursor-pointer hover:underline">
               {post.user.name}
             </p>
             <span className="text-neutral-500 cursor-pointer hover:underline hidden md:block">
@@ -138,7 +138,7 @@ const PostItem = ({ post, user, setPosts }: Props) => {
             </span>
           </div>
 
-          <div className="text-white mt-1">{post.body}</div>
+          <div className="dark:text-white mt-1">{post.body}</div>
 
           <div className="flex flex-row items-center mt-3 gap-10">
             <div className="flex flex-row items-center text-neutral-500 gap-2 cursor-pointer transition hover:text-sky-500">

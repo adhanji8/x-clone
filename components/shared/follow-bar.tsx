@@ -9,9 +9,11 @@ const FollowBar = async () => {
   const users = await getUsers(5);
   return (
     <div className="py-4 hidden lg:block w-[266px]">
-      <div className="bg-neutral-900 rounded-xl ">
+      <div className="bg-slate-50 text-black dark:bg-neutral-900 rounded-xl ">
         <div className="flex items-center justify-between px-4 pt-4">
-          <h2 className="text-white text-xl font-semibold">Who to follow</h2>
+          <h2 className="text-black dark:text-white text-xl font-semibold">
+            Who to follow
+          </h2>
           <Link href="/explore">
             <Button
               secondary

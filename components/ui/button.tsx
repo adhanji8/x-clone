@@ -32,7 +32,9 @@ export default function Button({
       className={cn(
         "rounded-full font-semibold border transition hover:opacity-80 disabled:opacity-70 disabled:cursor-not-allowed",
         fullWidth ? "w-full" : "w-fit",
-        secondary ? "bg-white text-black" : "bg-sky-500 text-white",
+        secondary
+          ? "bg-white text-black"
+          : "dark:bg-sky-500 bg-slate-900 text-white",
         large ? "text-xl px-5 py-3" : "text-md px-4 py-3",
         outline
           ? "bg-transparent border-slate-600 text-sky-500 hover:bg-slate-800/40"

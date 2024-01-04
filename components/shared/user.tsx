@@ -13,7 +13,7 @@ const User = ({ user }: { user: IUser }) => {
         </Avatar>
 
         <div className="flex flex-col">
-          <p className="text-white font-semibold text-sm line-clamp-1">
+          <p className="text-black dark:text-white font-semibold text-sm line-clamp-1">
             {user.name}
           </p>
           <p className="text-neutral-400 text-sm line-clamp-1">
