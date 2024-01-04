@@ -8,7 +8,9 @@ interface IStorable<T> {
   retrieveUserByEmail(email: string): any; // TODO FIX
   retrieveUserByUsername(username: string): any; // TODO FIX
   retrievePostsByUsername(username: string): any; // TODO FIX
+  retrievePostsByUserId(id: string): any; // TODO FIX
   retrieveUsers(quantity: number): any; // TODO FIX
+  retrieveNotificationsByUserId(userId: string): any;
   retrievePostById(id: string): any; // TODO FIX
   insertPost(body: string, userId: string): any; // TODO FIX
 }
@@ -50,6 +52,13 @@ export class Database {
   async retrievePostsByUsername(username: string) {
     return this.store.retrievePostsByUsername(username);
   }
+  async retrievePostsByUserId(id: string) {
+    return this.store.retrievePostsByUserId(id);
+  }
+
+  async retrieveNotificationsByUserId(id: string) {
+    return this.store.retrieveNotificationsByUserId(id);
+  }
 }
 
 export class JsonDatabase implements IStorable<IUser> {
@@ -71,6 +80,9 @@ export class JsonDatabase implements IStorable<IUser> {
       createdAt: "October 15, 2023 05:35:32",
       title: body,
       body: body,
+      followers: [],
+      following: [],
+      isFollowing: false,
       comments: 0,
       hasLiked: false,
       likes: 0,
@@ -78,7 +90,12 @@ export class JsonDatabase implements IStorable<IUser> {
         id: "0b7dc03f-eada-4167-a11e-17528eb31c4c",
         name: "john",
         username: "john123",
+        createdAt: "October 15, 2023 05:35:32",
         hasNewNotifications: false,
+        isFollowing: false,
+        following: 0,
+        comments: 0,
+        followers: [],
         email: "john123@gmail.com",
         profileImage:
           "https://res.cloudinary.com/demo/image/twitter/1330457336.jpg",
@@ -130,6 +147,22 @@ export class JsonDatabase implements IStorable<IUser> {
     const posts = data.find((user: IUser) => user.username === username)?.posts;
     if (!posts) return null;
     return posts;
+  }
+
+  async retrievePostsByUserId(id: string) {
+    const data = await this.getData();
+    const posts = data.find((user: IUser) => user.id === id)?.posts;
+    if (!posts) return null;
+    return posts;
+  }
+
+  async retrieveNotificationsByUserId(id: string) {
+    const data = (await this.getData()) as any;
+    const notifications = data.filter(
+      (notification: any) => notification.userId === id
+    );
+    if (!notifications) return null;
+    return notifications;
   }
 
   private async getData(): Promise<IUser[]> {

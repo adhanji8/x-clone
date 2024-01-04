@@ -18,7 +18,7 @@ const SidebarAccount = ({ user }: Props) => {
   return (
     <>
       {/* MOBIE SIDEBAR ACCOUNT */}
-      <div className="lg:hidden block items-center">
+      <div className="lg:hidden block">
         <div
           className="mt-6 lg:hidden rounded-full h-10 w-10 flex items-center justify-center bg-red-500 hover:bg-opacity-80 transition cursor-pointer"
           onClick={async () => {
