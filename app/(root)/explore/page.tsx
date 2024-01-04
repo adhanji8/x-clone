@@ -77,7 +77,7 @@ const Page = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 mt-6">
             {users.map((user) => (
               <Link key={user.id} href={`/profile/${user.id}`}>
-                <div className="border-b-[1px] border-neutral-800 p-5 cursor-pointer hover:bg-neutral-900 transition relative mr-4">
+                <div className="border-b-[1px] border-slate-200 dark:border-neutral-800 p-5 cursor-pointer hover:bg-neutral-900 transition relative mr-4">
                   <div className="flex flex-row gap-4">
                     <Avatar>
                       <AvatarImage src={user.profileImage} />

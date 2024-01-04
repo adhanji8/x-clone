@@ -100,7 +100,7 @@ const ProfileBio = ({ user, userId }: { user: IUser; userId: string }) => {
   return (
     <>
       <EditModal user={user} />
-      <div className="border-b-[1px] border-neutral-800 pb-4">
+      <div className="border-b-[1px] border-slate-200 dark:border-neutral-800 pb-4">
         <div className="flex justify-end p-2">
           {userId === user.id ? (
             <Button

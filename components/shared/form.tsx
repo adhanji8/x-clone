@@ -52,7 +52,7 @@ const Form = ({ placeholder, user, isComment, postId }: Props) => {
   };
 
   return (
-    <div className="border-b-[1px] border-neutral-800 px-5 py-2">
+    <div className="border-b-[1px] border-slate-200 dark:border-neutral-800 px-5 py-2">
       <div className="flex flex-row gap-4">
         <Avatar>
           <AvatarImage src={user.profileImage} />
@@ -61,7 +61,7 @@ const Form = ({ placeholder, user, isComment, postId }: Props) => {
 
         <div className="w-full">
           <textarea
-            className="disabled:opacity-80 peer resize-none mt-3 w-full bg-black ring-0 outline-none text-[20px] placeholder-neutral-500 text-white h-[50px]"
+            className="disabled:opacity-80 peer resize-none mt-3 w-full dark:bg-black ring-0 outline-none text-[20px] placeholder-neutral-500 dark:text-white h-[50px]"
             placeholder={placeholder}
             value={body}
             onChange={(e) => setBody(e.target.value)}

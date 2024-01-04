@@ -84,7 +84,7 @@ const CommentItem = ({ comment, user, setComments, comments }: Props) => {
   };
 
   return (
-    <div className="border-b-[1px] relative border-neutral-800 p-5 cursor-pointer hover:bg-neutral-900 transition">
+    <div className="border-b-[1px] relative p-5 cursor-pointer border-slate-200 dark:border-neutral-800 hover:bg-slate-300 dark:hover:bg-neutral-900 transition">
       {isLoading && (
         <div className="absolute inset-0 w-full h-full bg-black opacity-50">
           <div className="flex justify-center items-center h-full">

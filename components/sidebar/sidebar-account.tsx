@@ -39,7 +39,7 @@ const SidebarAccount = ({ user }: Props) => {
                 <AvatarImage src={user?.profileImage} />
                 <AvatarFallback>{user?.name[0]}</AvatarFallback>
               </Avatar>
-              <div className="flex flex-col items-start text-white">
+              <div className="flex flex-col items-start dark:text-white">
                 <p>{user?.name}</p>
                 {user?.username ? (
                   <p className="opacity-40">@{user?.username}</p>
@@ -51,9 +51,9 @@ const SidebarAccount = ({ user }: Props) => {
             <MoreHorizontal size={24} color="white" />
           </div>
         </PopoverTrigger>
-        <PopoverContent className="border-none rounded-2xl px-0 mb-3 bg-neutral-900 hover:bg-slate-400 hover:bg-opacity-10">
+        <PopoverContent className="border-none rounded-2xl px-0 mb-3 bg-slate-50 dark:bg-neutral-900 hover:bg-slate-400 hover:bg-opacity-10">
           <div
-            className="font-bold text-white cursor-pointer p-4 transition"
+            className="font-semibold text-slate-400 dark:text-white cursor-pointer p-4 transition"
             onClick={async () => {
               await fetch("/api/auth/logout", { method: "POST" });
               router.refresh();

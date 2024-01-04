@@ -38,7 +38,7 @@ const Page = ({ params }: { params: { userId: string } }) => {
           {data.length > 0 ? (
             data.map((notification: IPost) => (
               <div
-                className="flex flex-row items-center p-6 gap-4 border-b-[1px] border-neutral-800"
+                className="flex flex-row items-center p-6 gap-4 border-b-[1px] border-slate-200 dark:border-neutral-800"
                 key={notification.id}
               >
                 <Image

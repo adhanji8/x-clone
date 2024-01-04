@@ -1,20 +1,24 @@
 import { NextResponse } from "next/server";
-import { db, sessionDb, Session } from "@/datastore";
+import { sessionDb, Session } from "@/datastore";
 import bcrypt from "bcrypt";
 import { cookies } from "next/headers";
 import { loginSchema } from "@/lib/validation";
+import { retrieveUserByEmail } from "@/services/userService";
 
 export async function POST(request: Request) {
   try {
     const cookieStore = cookies();
     const { email, password } = await request.json();
     loginSchema.parse({ email, password });
-    const existingUser = await db.retrieveUserByEmail(email);
+    const existingUser = await retrieveUserByEmail(email);
     if (!existingUser) {
       return NextResponse.json({ error: "No user found" }, { status: 400 });
     }
 
-    const validPassword = await bcrypt.compare(password, existingUser.password);
+    const validPassword = await bcrypt.compare(
+      password,
+      existingUser.password!
+    );
     if (!validPassword) {
       return NextResponse.json({
         success: false,
