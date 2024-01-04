@@ -5,6 +5,7 @@ import NextTopLoader from "nextjs-toploader";
 import Sidebar from "@/components/sidebar/sidebar";
 import { Toaster } from "@/components/ui/toaster";
 import FollowBar from "@/components/shared/follow-bar";
+import BottomNav from "@/components/shared/bottom-nav";
 
 interface Props {
   children: React.ReactNode;
@@ -38,6 +39,7 @@ const Layout = async ({ children }: Props) => {
               speed={200}
               shadow="0 0 10px #2299DD,0 0 5px #2299DD"
             />
+            <BottomNav user={user} />
             {children}
             <Toaster />
           </div>
