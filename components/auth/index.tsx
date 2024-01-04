@@ -31,7 +31,7 @@ export default function Auth() {
           alt="X"
           width={450}
           height={450}
-          className="justify-self-center hidden md:block"
+          className="justify-self-center hidden md:block dark:invert-0 invert"
         />
         <div className="flex flex-col justify-center md:justify-between gap-6 h-full md:h-[70vh]">
           <div className="block md:hidden">
@@ -87,7 +87,6 @@ export default function Auth() {
             <Button
               label={"Sign in"}
               fullWidth
-              outline
               onClick={onOpenLoginModal}
             />
           </div>

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Provider } from "./provider";
 import { UserContextProvider } from "@/lib/useAuthClient";
+import { ThemeToggleSwitch } from "@/components/shared/theme-toggle-switch";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <ThemeToggleSwitch />
             {children}
           </Provider>
         </UserContextProvider>
