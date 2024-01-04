@@ -21,12 +21,13 @@ const Header = ({ label, isBack }: Props) => {
         {isBack && (
           <BiArrowBack
             onClick={handleBack}
-            color={"white"}
             size={20}
-            className={"cursor-pointer hover:opacity-70 transition"}
+            className={
+              "cursor-pointer hover:opacity-70 transition dark:text-white"
+            }
           />
         )}
-        <h1 className="text-white text-xl font-semibold">{label}</h1>
+        <h1 className="dark:text-white text-xl font-semibold">{label}</h1>
       </div>
     </div>
   );

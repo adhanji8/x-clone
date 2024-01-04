@@ -46,8 +46,9 @@ const Page = ({ params }: { params: { userId: string } }) => {
                   src={"/images/x.svg"}
                   width={32}
                   height={32}
+                  className="dark:invert-0 invert"
                 />
-                <p className="text-white">{notification.body}</p>
+                <p className="dark:text-white">{notification.body}</p>
               </div>
             ))
           ) : (

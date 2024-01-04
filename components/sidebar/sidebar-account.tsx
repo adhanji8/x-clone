@@ -1,5 +1,6 @@
 "use client";
 
+import { ThemeToggleSwitch } from "@/components/shared/theme-toggle-switch";
 import { IUser } from "@/interfaces";
 import React from "react";
 import { RiLogoutCircleLine } from "react-icons/ri";
@@ -51,9 +52,12 @@ const SidebarAccount = ({ user }: Props) => {
             <MoreHorizontal size={24} color="white" />
           </div>
         </PopoverTrigger>
-        <PopoverContent className="border-none rounded-2xl px-0 mb-3 bg-slate-50 dark:bg-neutral-900 hover:bg-slate-400 hover:bg-opacity-10">
+        <PopoverContent className="flex flex-col items-center border-none rounded-2xl px-0 mb-3 bg-slate-50 dark:bg-neutral-900">
+          <div className="font-semibold text-slate-600 dark:text-white cursor-pointer p-4 transition hover:bg-slate-400 hover:bg-opacity-10 w-full">
+            <ThemeToggleSwitch />
+          </div>
           <div
-            className="font-semibold text-slate-400 dark:text-white cursor-pointer p-4 transition"
+            className="font-semibold text-slate-600 dark:text-white cursor-pointer p-4 transition hover:bg-slate-400 hover:bg-opacity-10 w-full text-center"
             onClick={async () => {
               await fetch("/api/auth/logout", { method: "POST" });
               router.refresh();
