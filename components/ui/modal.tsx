@@ -1,12 +1,5 @@
 import { ReactElement } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -36,13 +29,13 @@ export default function Modal({
           isEditing && "h-[80vh] overflow-x-hidden overflow-y-auto"
         )}
       >
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-6 p-5">
           <button className="p-1 border-0 text-white hover:opacity-70 transition w-fit">
             <X size={28} onClick={onClose} />
           </button>
 
           {step && totalSteps && (
-            <div className="text-xl font-bold">
+            <div className="text-xl font-bold text-white">
               Step {step} of {totalSteps}
             </div>
           )}

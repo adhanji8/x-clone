@@ -61,5 +61,26 @@ export async function retrievePostsByUserId(id: string) {
   const data = await getData();
   const posts = data.find((user: IUser) => user.id === id)?.posts;
   if (!posts) return null;
-  return posts;
+  const filteredPosts = posts.map((post: any) => ({
+    body: post.body,
+    title: "",
+    createdAt: post.createdAt,
+    user: {
+      id: post.user.id,
+      name: post.user.name,
+      username: post.user.username,
+      profileImage: post.user.profileImage,
+      email: post.user.email,
+      createdAt: "",
+      followers: [],
+      following: 1,
+      isFollowing: false,
+      hasNewNotifications: false,
+    },
+    likes: post.likes.length,
+    comments: post.comments.length,
+    hasLiked: false,
+    id: post.id,
+  }));
+  return filteredPosts;
 }
