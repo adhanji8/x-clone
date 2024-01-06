@@ -58,6 +58,8 @@ export async function retrievePostsByUsername(username: string) {
 }
 
 export async function retrievePostsByUserId(id: string) {
+  // Uncomment to simulate suspense loader
+  // await new Promise((resolve) => setTimeout(resolve, 5000));
   const data = await getData();
   const posts = data.find((user: IUser) => user.id === id)?.posts;
   if (!posts) return null;
