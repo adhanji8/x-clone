@@ -76,7 +76,7 @@ const FollowUser = ({ user, setFollowing }: Props) => {
     }
   };
 
-  const goToProfile = (evt: any) => {
+  const goToProfile = (evt: React.MouseEvent<HTMLSpanElement>) => {
     evt.stopPropagation();
     router.push(`/profile/${user.id}`);
   };

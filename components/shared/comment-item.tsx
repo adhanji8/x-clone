@@ -79,7 +79,7 @@ const CommentItem = ({ comment, user, setComments, comments }: Props) => {
     }
   };
 
-  const goToProfile = (evt: any) => {
+  const goToProfile = (evt: React.MouseEvent<HTMLSpanElement>) => {
     evt.stopPropagation();
     router.push(`/profile/${user.id}`);
   };

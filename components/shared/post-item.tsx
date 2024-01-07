@@ -23,7 +23,7 @@ const PostItem = ({ post, user, setPosts }: Props) => {
 
   const router = useRouter();
 
-  const onDelete = async (e: any) => {
+  const onDelete = async (e: React.MouseEvent<HTMLSpanElement>) => {
     e.stopPropagation();
     try {
       setIsLoading(true);
@@ -44,7 +44,7 @@ const PostItem = ({ post, user, setPosts }: Props) => {
     }
   };
 
-  const onLike = async (e: any) => {
+  const onLike = async (e: React.MouseEvent<HTMLSpanElement>) => {
     e.stopPropagation();
     try {
       setIsLoading(true);
@@ -97,7 +97,7 @@ const PostItem = ({ post, user, setPosts }: Props) => {
     router.push(`/posts/${post.id}`);
   };
 
-  const goToProfile = (evt: any) => {
+  const goToProfile = (evt: React.MouseEvent<HTMLSpanElement>) => {
     evt.stopPropagation();
     router.push(`/profile/${post.user.id}`);
   };
