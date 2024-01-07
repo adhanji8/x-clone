@@ -1,6 +1,7 @@
 import { IPost, IUser } from "@/interfaces";
 import fs from "node:fs/promises";
 import { retrieveUserById } from "./userService";
+import { IComment } from "@/interfaces/IPost";
 const DB_NAME = "fakedatabase.json";
 
 async function getData(): Promise<IUser[]> {
@@ -17,7 +18,7 @@ export async function insertPost(body: string, userId: string): Promise<IPost> {
     followers: [],
     following: [],
     isFollowing: false,
-    comments: 0,
+    comments: [],
     hasLiked: false,
     likes: 0,
     user: {
@@ -46,8 +47,16 @@ export async function insertPost(body: string, userId: string): Promise<IPost> {
 }
 
 export async function retrievePostById(id: string): Promise<IPost | null> {
-  const data = await getData();
-  return data[0].posts![0];
+  const users = await getData();
+  let postToReturn = null;
+  users.forEach((user) => {
+    const searchedPost = user.posts?.find((post) => post.id === id);
+    if (searchedPost != undefined) {
+      postToReturn = searchedPost;
+    }
+  });
+
+  return postToReturn;
 }
 
 export async function retrievePostsByUsername(username: string) {
@@ -57,7 +66,17 @@ export async function retrievePostsByUsername(username: string) {
   return posts;
 }
 
-export async function retrievePostsByUserId(id: string) {
+export async function retrieveCommentsByPostId(
+  postId: string
+): Promise<IComment[] | null> {
+  const foundPost = await retrievePostById(postId);
+  if (!foundPost) return null;
+  return foundPost.comments;
+}
+
+export async function retrievePostsByUserId(
+  id: string
+): Promise<IPost[] | null> {
   // Uncomment to simulate suspense loader
   // await new Promise((resolve) => setTimeout(resolve, 5000));
   const data = await getData();

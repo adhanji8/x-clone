@@ -19,7 +19,36 @@
         "createdAt": "October 15, 2023 05:35:32",
         "title": "go to mall",
         "body": "relax",
-        "comments": [],
+        "comments": [
+          {
+            "id": "lwkefm",
+            "likes": 1,
+            "hasLiked": false,
+            "body": "a",
+            "createdAt": "October 15, 2023 05:35:32",
+            "user": {
+              "id": "0b7dc03f-eada-4167-a11e-17528eb31c4c",
+              "name": "john",
+              "username": "john123",
+              "profileImage": "https://res.cloudinary.com/demo/image/twitter/1330457336.jpg",
+              "email": "john123@gmail.com"
+            }
+          },
+          {
+            "id": "lwkefmz",
+            "likes": 1,
+            "hasLiked": false,
+            "body": "this is a second comment",
+            "createdAt": "October 15, 2023 05:35:32",
+            "user": {
+              "id": "0b7dc03f-eada-4167-a11e-17528eb31c4c",
+              "name": "john",
+              "username": "john123",
+              "profileImage": "https://res.cloudinary.com/demo/image/twitter/1330457336.jpg",
+              "email": "john123@gmail.com"
+            }
+          }
+        ],
         "hasLiked": false,
         "likes": 0,
         "user": {
@@ -35,7 +64,7 @@
         "createdAt": "October 15, 2023 05:35:32",
         "title": "cool app",
         "body": "cool app",
-        "comments": 0,
+        "comments": [],
         "hasLiked": false,
         "likes": 0,
         "user": {
@@ -52,7 +81,7 @@
         "createdAt": "October 15, 2023 05:35:32",
         "title": "nice app",
         "body": "nice app",
-        "comments": 0,
+        "comments": [],
         "hasLiked": false,
         "likes": 0,
         "user": {
@@ -69,7 +98,7 @@
         "createdAt": "October 15, 2023 05:35:32",
         "title": "fantastic functionality, great job.",
         "body": "fantastic functionality, great job.",
-        "comments": 0,
+        "comments": [],
         "hasLiked": false,
         "likes": 0,
         "user": {
@@ -89,7 +118,7 @@
         "followers": [],
         "following": [],
         "isFollowing": false,
-        "comments": 0,
+        "comments": [],
         "hasLiked": false,
         "likes": 0,
         "user": {
@@ -130,7 +159,7 @@
         "title": "go to hawaii",
         "likes": 0,
         "body": "relax",
-        "comments": 0,
+        "comments": [],
         "user": {
           "id": "aa8dc2ed-7fe9-465f-9c04-ed2fe27bc321",
           "name": "sandra",

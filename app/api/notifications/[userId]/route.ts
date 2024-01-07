@@ -4,12 +4,7 @@ import { NextResponse } from "next/server";
 export async function GET(req: Request, route: { params: { userId: string } }) {
   try {
     const { userId } = route.params;
-
-    console.log("Heyyyyy");
-    console.log(userId);
     const notifications = await retrieveNotificationsByUserId(userId);
-    console.log("the notifications are: ");
-    console.log(notifications);
 
     // In reality, we should hide notifications after they are seen
     // Ex:

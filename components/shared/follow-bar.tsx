@@ -3,10 +3,10 @@ import Button from "../ui/button";
 import User from "./user";
 import { IUser } from "@/interfaces";
 import Link from "next/link";
-import { getUsers } from "@/lib/service";
+import { retrieveUsers } from "@/services/userService";
 
 const FollowBar = async () => {
-  const users = await getUsers(5);
+  const users = await retrieveUsers(5);
   return (
     <div className="py-4 hidden lg:block w-[266px]">
       <div className="bg-slate-50 text-black dark:bg-neutral-900 rounded-xl ">

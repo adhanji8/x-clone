@@ -10,12 +10,13 @@ import { AiFillDelete } from "react-icons/ai";
 import { Loader2 } from "lucide-react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { IComment } from "@/interfaces/IPost";
 
 interface Props {
-  comment: IPost;
+  comment: IComment;
   user: IUser;
   setComments?: React.Dispatch<React.SetStateAction<IPost[]>>;
-  comments: IPost[];
+  comments: IComment[];
 }
 
 const CommentItem = ({ comment, user, setComments, comments }: Props) => {

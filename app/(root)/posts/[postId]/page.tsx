@@ -7,13 +7,19 @@ import { IPost, IUser } from "@/interfaces";
 import { formatDistanceToNowStrict } from "date-fns";
 import React from "react";
 import useAuthServer from "@/lib/useAuthServer";
-import { getComments, getPost } from "@/lib/service";
+import { IComment } from "../../../../interfaces/IPost";
+import {
+  retrieveCommentsByPostId,
+  retrievePostById,
+} from "@/services/postService";
 
 export default async function Page({ params }: { params: { postId: string } }) {
-  const user = await useAuthServer();
-  if (!user) return { error: "user not found " };
-  const post: IPost = await getPost(params.postId);
-  const comments = await getComments(params.postId);
+  const [user, post, comments] = await Promise.all([
+    useAuthServer(),
+    retrievePostById(params.postId),
+    retrieveCommentsByPostId(params.postId),
+  ]);
+  if (!user || !post || !comments) return { error: "entity not found" };
 
   return (
     <>
@@ -30,7 +36,7 @@ export default async function Page({ params }: { params: { postId: string } }) {
   );
 }
 
-function OriginalPost({ post }: any) {
+function OriginalPost({ post }: { post: IPost }) {
   return (
     <div className="border-b-[1px] p-5 cursor-pointer border-slate-200 dark:border-neutral-800 transition">
       <div className="flex flex-row items-center gap-3">
@@ -62,13 +68,13 @@ function OriginalPost({ post }: any) {
   );
 }
 
-function Comments({ comments, user }: any) {
+function Comments({ comments, user }: { comments: IComment[]; user: IUser }) {
   return (
     <>
-      {comments.map((comment: any) => (
+      {comments.map((comment) => (
         <CommentItem
           comment={comment}
-          key={comment._id}
+          key={comment.id}
           user={user}
           comments={comments}
         />
