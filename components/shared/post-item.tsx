@@ -122,7 +122,7 @@ const PostItem = ({ post, user, setPosts }: Props) => {
 
         <div>
           <div
-            className="flex flex-row items-center gap-2"
+            className="flex flex-row items-center gap-20"
             onClick={goToProfile}
           >
             <p className="dark:text-white font-semibold cursor-pointer hover:underline">
