@@ -11,6 +11,7 @@ Creating a clone of X (twitter) with Next 14.
 - [x] Add responsive mobile tab navigation
 - [x] Implement theme switcher toggle
 - [x] Show dark-colored X logo when light-theme is turned on
+- [ ] Add useFormStatus hook to login and register buttons to show loading spinner while waiting for authentication
 - [ ] Implement [Intercepting Routes](https://nextjs.org/docs/app/building-your-application/routing/intercepting-routes) so UX when linking to the login/register modal is solid.
 - [x] Apply Server-side validation with shared Zod Schema from client
 - [ ] Try using [unglitch](https://unglitch.activeno.de/) rather than Zustand/TanStack Query for cacheing
